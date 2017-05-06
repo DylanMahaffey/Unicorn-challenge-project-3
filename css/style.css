@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+}
+html {
+    height: 100%;
+    width: 100%;
+}
+body{
+    background: honeydew;
+}
+.center-form-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.center-form {
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 2px 2px 7px grey;
+}
+.register-form{
+    display: flex;
+    flex-direction: column;
+}
+.register-form input {
+    margin: 10px 0;
+    width: 300px;
+}
+.member-login-guest{
+    display: flex;
+    width: 100%;
+}
+.member-login-guest form{
+    display: flex;
+    width: 50%;
+}
+.member-login-guest input {
+    width: 100%;
+}
+
+
+/* MAIN.PHP STYLES; */
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background: black;
+    color: white;
+    box-shadow: 2px 2px 7px grey;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+header li {
+    list-style-type: none;
+    float: left;
+    height: 100%;
+    padding: 0 20px;
+}
+header li:hover {
+    background: grey;
+}
+header img {
+    height: 50px;
+}
+.main-body{
+    display: flex;
+    margin-top: 100px;
+}
+.main-aside{
+    border: 1px solid grey;
+    width: 200px;
+    height: 100vh;
+    text-align: center;
+}
+.main{
+    height: 100vh;
+    width: 100%;
+}
+/*COMMENT: BOX*/
+.comment-box{
+    border: 1px solid grey;
+    margin: 0 50px;
+    border-radius: 5px;
+}
+.comment-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid grey;
+    padding-left: 15px;
+}
+.comment-datetime{
+    display: flex;
+}
+.comment-datetime p{
+    margin: 5px;
+}
+.comment{
+    padding: 15px 10px;
+}
+.comment-box button {
+    margin: 5px;
+}
