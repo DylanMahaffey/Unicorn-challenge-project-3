@@ -1,18 +1,18 @@
 <?php
 session_start();
-$_SESSION["username"] = $_POST["username"];
-$_SESSION["id"] = -2;
-$username = $_POST["username"];
-$password =  $_POST["password"];
-$email =  $_POST["email"];
+
+$username = $_SESSION["username"];
+$post = $_POST["post"];
+
 $conn = mysqli_connect("localhost", "root", "qpalz,", "unicorn");
 if(mysqli_connect_errno()){
     die("database connection failed: ". mysqli_connect_error().
     "(".mysqli_connect_errno().")");
 };
-$query = "INSERT INTO users (username, password, email, member)
-                VALUES ('{$username}', '{$password}', '{$email}', 'no')";
 
+$query = "INSERT INTO posts (username, date, time, post)
+                VALUES ('{$username}', now(), now(), '{$post}')";
+echo $query;
     $result = mysqli_query($conn, $query);
     if($result){
         header("Location: ../main.php");

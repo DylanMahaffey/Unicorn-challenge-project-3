@@ -2,7 +2,7 @@
 session_start();
 if(empty($_SESSION["id"])){
     header("Location: index.php");
-}elseif($_GET["log"] == "out"){
+} elseif (isset($_GET["log"]) &&$_GET["log"] == "out"){
     session_unset();
     session_destroy();
     header("Location: index.php");
@@ -14,7 +14,7 @@ if(mysqli_connect_errno()){
     die("database connection failed: ". mysqli_connect_error().
     "(".mysqli_connect_errno().")");
 };
-$post_query = "SELECT * FROM posts";
+$post_query = "SELECT * FROM posts ORDER BY id DESC ";
 $posts = mysqli_query($conn, $post_query);
 
 
@@ -44,6 +44,15 @@ $posts = mysqli_query($conn, $post_query);
             <h2>Welcome <?= $_SESSION["username"] ?>!</h2>
         </aside>
         <main class="main">
+            <?php  if($_SESSION["id"] != -1){ ?>
+            <div class="post-box">
+                <div class="post-message">Post a message:</div>
+                <form class="" action="include/post.php" method="post">
+                    <textarea name="post" required></textarea><br>
+                    <input type="submit" name="submit" value="submit">
+                </form>
+            </div>
+            <?php } ?>
             <section class="chat-feed">
                 <?php while($post = mysqli_fetch_assoc($posts)){  ?>
                         <div class="comment-box">
@@ -54,8 +63,10 @@ $posts = mysqli_query($conn, $post_query);
                             <div class="comment">
                                 <p><?= $post["post"] ?></p>
                             </div>
-                            <?php if($_SESSION["id"] != -1){ ?>
-                                <button class="button" type="button" name="button">Comment</button>
+                            <?php if($_SESSION["username"] == $post["username"]){ ?>
+                                <form action="include/delete-comment.php">
+                                    <button type="submit" name="delete" value=" <?= $post["id"] ?>">Delete</button>
+                                </form>
                                 <?php } ?>
                         </div>
                 <?php }; ?>

@@ -54,13 +54,23 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 0 10px;
+}
+header a {
+    text-decoration: none;
+    color: white;
+}
+header ul, nav {
+    height: 100%;
 }
 header li {
     list-style-type: none;
     float: left;
     height: 100%;
     padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 header li:hover {
     background: grey;
@@ -85,8 +95,10 @@ header img {
 /*COMMENT: BOX*/
 .comment-box{
     border: 1px solid grey;
-    margin: 0 50px;
+    margin: 20px 50px;
     border-radius: 5px;
+    background: lightgreen;
+    width: 500px;
 }
 .comment-info{
     display: flex;
@@ -94,6 +106,7 @@ header img {
     align-items: center;
     border-bottom: 1px solid grey;
     padding-left: 15px;
+    background: white;
 }
 .comment-datetime{
     display: flex;
@@ -106,4 +119,22 @@ header img {
 }
 .comment-box button {
     margin: 5px;
+}
+
+/*POST COMMENT BOX*/
+.post-box{
+    width: 500px;
+    height: 100px;
+    margin: 0 50px;
+    margin-bottom: 50px;
+}
+.post-box form {
+    width: 90%;
+}
+.post-box textarea{
+    width: 100%;
+    resize: none;
+}
+.post-box input{
+
 }
